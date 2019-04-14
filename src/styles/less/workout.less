@@ -1,0 +1,316 @@
+.reserva-selection-work {
+    .reserva-table {
+        .button-general {
+            text-align: center;
+            display: block;
+            width: 30%;
+            margin: 2em auto;
+            @media (max-width: 575.98px) {
+                width: 100%;
+            }
+        }
+        .work-container {
+            height: 500px;
+            width: auto;
+            font-size: .9em;
+            .col-work-1 {
+                width: 30%;
+                height: 500px;
+                float: left;
+                @media (max-width: 575.98px) {
+                    width: 20%;
+                }
+                @media (min-width: 576px) and (max-width: 991.98px) {
+                    width: 25%;
+                }
+                .work-margin {
+                    width: 60%;
+                    float: right;
+                    margin-top: 3em;
+                    @media (min-width: 576px) and (max-width: 991.98px) {
+                        float: left;
+                    }
+                    .work-inner {
+                        width: 90px;
+                        height: 30px;
+                        margin: .15em;
+                        display: flex;
+                        border-bottom: 1px solid @gris-claro;
+                        padding: 0.5em;
+                        justify-content: center;
+                        float: right;
+                        @media (max-width: 575.98px) {
+                            width: 60px;
+                        }
+                        @media (min-width: 576px) and (max-width: 991.98px) {
+                            width: 60px;
+                        }
+                        .work-circle {
+                            width: 25px;
+                            height: 25px;
+                            display: inline-block;
+                            float: left;
+                            border-radius: 50%;
+                            background-color: @texto-gris;
+                            border: 1px solid @texto-gris;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: @texto-medio;
+                                border: 1px solid @texto-medio;
+                            }
+                            &.busy {
+                                cursor: auto;
+                                background-color: @texto-negro;
+                            }
+                            &.selected-class {
+                                background-color: @texto-claro;
+                                border: 2px solid @texto-negro;
+                            }
+                        }
+                        .work-number {
+                            width: auto;
+                            display: inline-block;
+                            float: right;
+                            height: auto;
+                            margin-left: 1em;
+                            text-align: left;
+                            @media (max-width: 575.98px) {
+                                margin-left: .5em;
+                            }
+                        }
+                    }
+                }
+            }
+            .col-work-2 {
+                width: 40%;
+                height: auto;
+                float: left;
+                @media (max-width: 575.98px) {
+                    width: 70%;
+                }
+                @media (min-width: 576px) and (max-width: 991.98px) {
+                    width: 50%;
+                }
+                .work-margin {
+                    width: 70%;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-around;
+                    margin-bottom: 1em;
+                    .work-inner {
+                        width: auto;
+                        margin: 1em 4px;
+                        display: inline-block;
+                        border-right: 1px solid @gris-claro;
+                        border-left: 1px solid @gris-claro;
+                        padding: 0.75em;
+                        .work-square {
+                            width: 20px;
+                            height: 20px;
+                            display: block;
+                            background-color: @texto-gris;
+                            border: 1px solid @texto-gris;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: @texto-medio;
+                                border: 1px solid @texto-medio;
+                            }
+                            &.busy {
+                                cursor: auto;
+                                background-color: @texto-negro;
+                            }
+                            &.selected-class {
+                                background-color: @texto-claro;
+                                border: 1px solid @texto-negro;
+                            }
+                        }
+                        .work-number {
+                            width: 100%;
+                            display: block;
+                            height: auto;
+                            text-align: center;
+                        }                        
+                    }
+                }
+            }
+            .col-work-3 {
+                width: 40%;
+                height: 420px;
+                float: left;
+                @media (max-width: 575.98px) {
+                    width: 60%;
+                }
+                @media (min-width: 576px) and (max-width: 991.98px) {
+                    width: 50%;
+                }
+                .work-margin {
+                    width: 70%;
+                    margin: 0 auto;
+                    .work-inner {
+                        width: auto;
+                        height: 30px;
+                        display: block;
+                        padding: 1em 0.5em 0 0.5em;
+                        border-bottom: 1px solid @gris-claro;
+                        .work-square {
+                            width: 80%;
+                            height: 12px;
+                            display: block;
+                            float: right;
+                            background-color: @texto-gris;
+                            border: 1px solid @texto-gris;
+                            margin: auto 0;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: @texto-medio;
+                                border: 1px solid @texto-medio;
+                            }
+                            &.busy {
+                                cursor: auto;
+                                background-color: @texto-negro;
+                            }
+                            &.selected-class {
+                                background-color: @texto-claro;
+                                border: 1px solid @texto-negro;
+                            }
+                        }
+                        .work-number {
+                            width: auto;
+                            display: inline-block;
+                            float: left;
+                            height: auto;
+                            margin-right: 1em;
+                            text-align: left;
+                            @media (max-width: 575.98px) {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .inner-cardio {
+                        display: flex;
+                        justify-content: space-around;
+                        margin-top: 1em;
+                        .work-inline {
+                            width: auto;
+                            display: inline-block;
+                            border-left: 1px solid @gris-claro;
+                            border-right: 1px solid @gris-claro;
+                            padding: 0.75em;
+                            margin: 1em 0;
+                            @media (max-width: 575.98px) {
+                                padding: 0.25em;
+                            }
+                            .work-inner {
+                                width: auto;
+                                height: 30px;
+                                display: block;
+                                padding: 1em 0.5em 0 0.5em;
+                                border-bottom: none;
+                                .work-square {
+                                    width: 20px;
+                                    height: 20px;
+                                    display: block;
+                                    background-color: @texto-gris;
+                                    border: 1px solid @texto-gris;
+                                    cursor: pointer;
+                                    margin: 0 auto;
+                                    position: relative;
+                                    right: 1em;
+                                    @media (max-width: 575.98px) {
+                                        right: .25em;;
+                                    }
+                                    @media (min-width: 576px) and (max-width: 991.98px) {
+                                        right: .35em;
+                                    }
+                                    &:hover {
+                                        background-color: @texto-medio;
+                                        border: 1px solid @texto-medio;
+                                    }
+                                    &.busy {
+                                        cursor: auto;
+                                        background-color: @texto-negro;
+                                    }
+                                    &.selected-class {
+                                        background-color: @texto-claro;
+                                        border: 1px solid @texto-negro;
+                                    }
+                                }
+                                .work-number {
+                                    width: 100%;
+                                    display: block;
+                                    height: auto;
+                                    text-align: center;
+                                }  
+                            }   
+                        }
+                    }
+                }
+            }
+            .col-work-4 {
+                width: 30%;
+                height: auto;
+                float: left;
+                @media (max-width: 575.98px) {
+                    width: 20%;
+                }
+                @media (min-width: 576px) and (max-width: 991.98px) {
+                    width: 25%;
+                }
+                .work-margin {
+                    width: 60%;
+                    margin: 0 auto;
+                    float: left;
+                    @media (min-width: 576px) and (max-width: 991.98px) {
+                    float: right;
+                    }
+                    .work-inner {
+                        width: 90px;
+                        height: 30px;
+                        margin: .15em;
+                        display: block;
+                        border-bottom: 1px solid @gris-claro;
+                        padding: 0.5em;
+                        justify-content: center;
+                        float: left;
+                        @media (max-width: 575.98px) {
+                            width: 60px;
+                        }
+                        .work-square {
+                            width: 20px;
+                            height: 20px;
+                            display: inline-block;
+                            float: right;
+                            background-color: @texto-gris;
+                            border: 1px solid @texto-gris;
+                            cursor: pointer;
+                            margin-right: 1em;
+                            &:hover {
+                                background-color: @texto-medio;
+                                border: 1px solid @texto-medio;
+                            }
+                            &.busy {
+                                cursor: auto;
+                                background-color: @texto-negro;
+                            }
+                            &.selected-class {
+                                background-color: @texto-claro;
+                                border: 1px solid @texto-negro;
+                            }
+                        }
+                        .work-number {
+                            width: auto;
+                            display: inline-block;
+                            float: left;
+                            height: auto;
+                            margin-left: 1em;
+                            text-align: right;
+                            @media (max-width: 575.98px) {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

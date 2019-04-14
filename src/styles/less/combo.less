@@ -1,0 +1,64 @@
+.combo-container {
+    padding: 8px 40px;
+    .mdl-selectfield select {
+        appearance: none
+    }
+    .mdl-selectfield {
+        select {
+            color: @texto-claro;
+            padding: 15px 0 5px 0;
+            font-size: 14px;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            transform: translateY(0px);
+            color: @texto-gris;
+            transition: all 0.5s;
+            line-height: inherit;
+            text-align: left;
+        }
+        font-family: 'Roboto','Helvetica','Arial',sans-serif;
+        position: relative;
+        &:after {
+            position: absolute;
+            top: 0.75em;
+            right: 0.5em;
+            width: 0;
+            height: 0;
+            padding: 14 0 0 0;
+            content: '';
+            border-left: .25em solid transparent;
+            border-right: .25em solid transparent;
+            border-top: .375em solid @texto-medio;
+            pointer-events: none;
+            display: none;
+        }
+        select {
+            font-family: inherit;
+            background-color: transparent;
+            width: 100%;
+            padding: 8px 0 5px 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: @texto-claro;
+            border: none;
+            border-bottom: 1px solid @texto-medio;
+            border-radius: 10px;
+            &.browser-default {
+                color: @texto-claro;
+                &:focus {
+                    outline: none;
+                    color: @texto-claro;
+                    background-color: @fondo-base;
+                    font-size: 14px;
+                    line-height: 3em;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+
+

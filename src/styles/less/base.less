@@ -1,0 +1,199 @@
+html,
+body {
+    background-color: @fondo-claro;
+    padding: 0;
+    margin: 0;
+    color: @texto-claro;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: auto;
+    outline: none;
+}
+*:focus {
+    outline: none !important;
+}
+#root {
+    width: 100%;
+    height: 100%;
+}
+.toast {
+    top: 50px !important;
+}
+.toast-warning,
+.toast-success,
+.toast-danger,
+.toast-error {
+    background-color: rgba(64, 64, 64, 1) !important;
+}
+#toast-container {
+    > div {
+        min-width: 260px !important;
+    }
+}
+
+.container {
+    top: 50px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+        & {
+            margin-bottom: 0px;
+        }
+    }
+
+    &.menu {
+        left: 300px;
+        width: calc(~'100% - 300px');
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            left: 200px;
+            width: calc(~'100% - 200px');
+        }
+    }
+}
+
+.container-login {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+    overflow: overflow;
+
+    @media screen and (max-width: 768px) {
+        & {
+            margin-bottom: 0px;
+        }
+    }
+
+    &.menu {
+        left: 300px;
+        width: calc(~'100% - 300px');
+    }
+}
+
+.container-login-slide {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+    overflow: hidden;
+    @media (max-width: 575.98px) {
+        overflow: auto;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        overflow: auto;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        overflow: auto;
+    }
+    @media screen and (max-width: 768px) {
+        & {
+            margin-bottom: 0px;
+        }
+    }
+
+    &.menu {
+        left: 300px;
+        width: calc(~'100% - 300px');
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            left: 200px;
+            width: calc(~'100% - 200px');
+        }
+    }
+}
+
+.container-login-v2 {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+    overflow: hidden;
+    @media screen and (max-width: 768px) {
+        & {
+            margin-bottom: 0px;
+        }
+    }
+    &.menu {
+        left: 300px;
+        width: calc(~'100% - 300px');
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            left: 200px;
+            width: calc(~'100% - 200px');
+        }
+    }
+}
+
+.button-general {
+    background-color: @fondo-base;
+    border: none;
+    border-radius: 0;
+    color: @texto-claro;
+    padding: 1em 3em;
+    text-transform: uppercase;
+    font-size: initial;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid @fondo-base;
+    transition: all 0.2s linear;
+
+    &:hover {
+        letter-spacing: 3px;
+        background-color: @texto-claro;
+        color: @texto-negro;
+    }
+    &:disabled {
+        border-color: @texto-medio;
+        background-color: @texto-claro;
+        color: @texto-medio;
+    }
+}
+
+.button-inverse {
+    background-color: @fondo-claro;
+    border: none;
+    border-radius: 0;
+    color: @texto-negro;
+    text-transform: uppercase;
+    font-size: initial;
+    text-decoration: none;
+    padding: 1.25em 5em;
+    position: absolute;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @fondo-base;
+        color: @texto-claro;
+    }
+}
+.btn {
+    border-radius: 0px !important;
+}
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes tiembla{
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
+  }

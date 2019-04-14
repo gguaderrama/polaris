@@ -1,0 +1,337 @@
+.login-form {
+    width: 360px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: @fondo-base;
+    z-index: 9;
+    text-align: center;
+    transition: left 0.3s linear;
+    overflow: hidden;
+    @media (max-width: 575.98px) {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        width: 300px;
+        height: 100%;
+        overflow: auto;
+    }
+    &.pass {
+        overflow: auto;
+        .login-boton {
+            top: 20px;
+        }
+    }
+    &.pass-denied {
+        overflow: auto;
+        padding: 1em;
+        text-align: left;
+        .pass-txt {
+            margin-top: 50%;
+            h3,
+            h4 {
+                padding-top: 10px;
+                color: #ffffff;
+                text-transform: inherit;
+                line-height: 2em;
+                a {
+                    color: @texto-claro;
+                    cursor: pointer;
+                    &:hover {
+                        color: @texto-gris;
+                    }
+                }
+            }
+        }
+    }
+    &.registro {
+        left: calc(~'100% - 360px');
+        overflow: hidden;
+        @media (max-width: 575.98px) {
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            overflow: auto;
+            left: calc(~'100% - 300px');
+        }
+        .login-boton {
+            margin-top: 2em;
+        }
+        .login-form-miembro {
+            top: -20px;
+        }
+    }
+    .login-form-inputs {
+        padding: 25px 40px 5px 40px;
+        &.registro {
+            padding: 35px 40px;
+            @media (min-width: 768px) and (max-width: 991.98px) {
+                padding: 35px 20px;
+            }
+            .material-checkbox {
+                font-size: 13px;
+                text-align: left;
+            }
+        }
+        .combo-container {
+            padding: 8px 0;
+        }
+        a {
+            color: @texto-gris;
+            text-decoration: none;
+            &:hover {
+                color: @texto-claro;
+            }
+        }
+        .mensaje {
+            color: red;
+            font-size: 0.5em;
+            padding: 0.1em 0;
+            line-height: 10px;
+            position: absolute;
+        }
+        .date-style {
+            float: left;
+            text-align: left;
+            width: 100%;
+            color: @texto-gris;
+            margin-top: -7px;
+            position: relative;
+            svg {
+                color: @texto-gris;
+            }
+            label {
+                color: @texto-gris !important;
+                font-size: 0.9em;
+            }
+            input {
+                color: @texto-claro !important;
+                width: 100%;
+                font-size: 14px;
+                min-width: 225px;
+            }
+            .info-text {
+                font-size: 0.7em;
+                position: absolute;
+                bottom: -6px;
+                margin-bottom: 0;
+                color: red;
+                left: 0;
+            }
+        }
+        .radio-valid {
+            float: left;
+            width: 100%;
+            height: auto;
+            position: relative;
+            .info-text {
+                font-size: 0.7em;
+                position: absolute;
+                bottom: -14px;
+                margin-bottom: 0;
+                color: #ff0000c7;
+                left: 0;
+            }
+        }
+    }
+    h4 {
+        .no-copy();
+        color: @texto-medio;
+        padding-top: 65px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        padding-top: 40px;
+        &.no-padding {
+            padding-top: 0px;
+        }
+        @media screen and (max-width: 575.98px) {
+            padding-top: 40px;
+        }
+    }
+    .login-form-miembro {
+        .no-copy();
+        font-size: 0.7em;
+        color: @texto-medio;
+        top: 90px;
+        position: relative;
+        @media (max-width: 575.98px) {
+            top: 10px;
+            position: relative;
+            margin-bottom: 3em;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            top: 10px;
+            position: relative;
+            margin-bottom: 3em;
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            top:0px;
+        }
+        span {
+            cursor: pointer;
+            font-weight: bold;
+            color: @texto-claro;
+        }
+    }
+    ul {
+        &.login-form-pass-val {
+            .no-copy();
+            color: @texto-gris;
+            font-size: 0.7em;
+            line-height: 0.5em;
+            left: 40px;
+            position: relative;
+            li {
+                display: block;
+            }
+        }
+    }
+    .login-form-olvidaste {
+        .no-copy();
+        cursor: pointer;
+        position: relative;
+        font-size: 0.7em;
+        color: @texto-medio;
+        &:hover {
+            color: @texto-claro;
+        }
+    }
+    .login-boton {
+        .no-copy();
+        top: 90px;
+        width: 80%;
+        height: 36px;
+        position: relative;
+        background-color: @texto-claro;
+        color: @fondo-base;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.9em;
+        border: 2px solid @texto-claro;
+        transition: all 0.2s linear;
+        cursor: pointer;
+        margin-bottom: 2em;
+        @media (max-width: 575.98px) {
+            top: 30px;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            top: 20px;
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            top: 25px;
+        }
+        &:hover {
+            background-color: @texto-negro;
+            color: @texto-claro;
+            letter-spacing: 3px;
+        }
+        &:disabled {
+            color: @texto-gris;
+        }
+        &.registrate {
+            top: 0;
+        }
+    }
+    ul {
+        padding-inline-start: 0;
+        width: 300px;
+        margin-left: -14px;
+        li {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+            padding: 0.5em 1em;
+            margin-top: 0.75em;
+            cursor: pointer;
+            &.intereses {
+                .no-copy();
+                text-align: center;
+                width: 80px;
+                height: 15px;
+                display: inline-table;
+                background-color: @fondo-base;
+                margin: 0.25em;
+                color: @texto-claro;
+                border: 1px solid @fondo-claro;
+                font-size: 0.7em;
+                &:hover {
+                    background-color: @texto-medio;
+                    border: none;
+                    color: @texto-negro;
+                    border: 1px solid @texto-medio;
+                }
+                &.activo {
+                    background-color: @gris-claro;
+                    color: @texto-negro;
+                }
+            }
+        }
+    }
+    .registro-back {
+        top: 60px;
+        left: 38px;
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        font-size: 2em;
+        svg {
+            display: inherit;
+            cursor: pointer;
+        }
+        &.hide {
+            display: none;
+        }
+    }
+    /* Change Autocomplete styles in Chrome*/
+    *:focus {
+        outline: 0;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        border: none;
+        box-shadow: 0 0 0 1000px @texto-negro inset;
+        -webkit-text-fill-color: @texto-claro !important;
+        -webkit-box-shadow: 0 0 0px 1000px @texto-negro inset !important;
+        background-color: transparent !important;
+        -webkit-transition: all ease-in-out 600000s;
+        -o-transition: all ease-in-out 600000s;
+        transition: all ease-in-out 600000s;
+    }   
+}
+.navigation-terminos {
+    position: relative;
+    text-align: left;
+    top: 0px;
+    left: 0px;
+    color: @texto-medio;
+    width: 150px !important;
+    margin: 5px 0 0 0px !important;
+    li {
+        .no-copy();
+        padding: 0px 0px !important;
+        font-size: 0.6em;
+        text-transform: none;
+        font-weight: 100;
+        &:hover {
+            color: @texto-claro;
+        }
+    }
+}

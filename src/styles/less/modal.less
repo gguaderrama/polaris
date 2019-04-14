@@ -1,0 +1,248 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 999999;
+    display: block;
+    top: 0;
+    left: 0;
+    .inner-modal {
+        .no-copy();
+        width: 400px;
+        height: auto;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        right: 0;
+        bottom: 0;
+        @media (max-width: 575.98px) {
+            width: 300px;
+        }
+        .header-modal {
+            height: auto;
+            width: 100%;
+            display: block;
+            position: relative;
+            top: 4px;
+            img {
+                &.img-head {
+                    @media (max-width: 575.98px) {
+                        width: 300px;
+                    }
+                }
+            }
+            svg {
+                position: absolute;
+                width: 2.5em;
+                height: 2.5em;
+                color: @texto-claro;
+                margin: auto;
+                top: 20px;
+                left: 0;
+                right: 0;
+                @media (max-width: 575.98px) {
+                    width: 2em;
+                    height: 2em;
+                    top: 16px;
+                }
+            }
+            .camera {
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: 60px;
+                left: 10px;
+                right: 350px;
+                z-index: 9;
+                color: @texto-negro;
+                @media (max-width: 575.98px) {
+                    top: 42px;
+                }
+            }
+            .trash {
+                cursor: pointer;
+                width: 25px;
+                height: 23px;
+                position: absolute;
+                top: 60px;
+                left: 60px;
+                right: 350px;
+                z-index: 9;
+                color: @texto-negro;
+                @media (max-width: 575.98px) {
+                    top: 42px;
+                }
+            }
+            .modal-close {
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                z-index: 9;
+                img {
+                    width: 20px;
+                }
+                @media (max-width: 575.98px) {
+                    top: 42px;
+                }
+            }
+        }
+        .info-modal {
+            height: auto;
+            width: 100%;
+            display: block;
+            background-color: @fondo-claro;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            .progress-bar-container {
+                background-color: white;
+                min-height: 200px;
+                text-align: left;
+                position: relative;
+                .progress-bar {
+                    position: absolute;
+                    margin: auto;
+                    top: 80px;
+                    left: 0;
+                    right: 0;
+                    left: 0;
+                    width: 90%;
+                    padding: 6px;
+                    background: rgba(0, 0, 0, 0.25);
+                    border-radius: 6px;
+                    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
+                        0 1px rgba(255, 255, 255, 0.08);
+                    progress {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 100%;
+                    }
+                }
+            }
+            video {
+                @media (max-width: 575.98px) {
+                    width: 300px;
+                    height: auto;
+                    margin-top: 1em;
+                }
+            }
+            .modal-camera-capture {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: @texto-claro;
+                border: 3px solid @fondo-base;
+                border-radius: 50%;
+                bottom: 70px;
+                left: 180px;
+                cursor: pointer;
+                box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+                &:hover {
+                    width: 36px;
+                    height: 36px;
+                    bottom: 67px;
+                    left: 177px;
+                }
+                @media (max-width: 575.98px) {
+                    left: 125px;
+                    &:hover {
+                        left: 122px;
+                    }
+                }
+            }
+            .modal-previo {
+                max-height: 50px;
+                img {
+                    max-height: 50px;
+                }
+            }
+            .style-modal {
+                margin: 0;
+                color: black;
+                padding: 10%;
+                text-align: center;
+            }
+            .drag-drop-container {
+                height: 310px;
+                width: 400px;
+                overflow: hidden;
+                position: relative;
+                @media (max-width: 575.98px) {
+                    width: 300px;
+                    height: 220px;
+                }
+                .ReactCrop {
+                    height: 304px;
+                    width: 400px;
+                }
+                img {
+                    position: absolute;
+                    left: -50%;
+                    right: -50%;
+                    margin: auto;
+                    height: 100%;
+                }
+                svg {
+                    color: @texto-negro;
+                    font-size: 2.5em;
+                    position: absolute;
+                    left: 30px;
+                    bottom: 80px;
+                    cursor: pointer;
+                }
+                .drag-drop {
+                    position: absolute;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    margin-top: 10px;
+                    height: 280px;
+                    width: 360px;
+                    border: 4px dashed @fondo-base;
+                    @media (max-width: 575.98px) {
+                        width: 260px;
+                        height: 200px;
+                    }
+                    input {
+                        position: absolute;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        height: 100%;
+                        outline: none;
+                        opacity: 0;
+                    }
+                    p {
+                        color: @texto-negro;
+                        padding: 1.25em;
+                        text-align: center;
+                        font-size: 1.25em;
+                    }
+                }
+            }
+            .btn {
+                width: 100%;
+                display: block;
+                text-align: center;
+                height: 50px;
+                border-radius: 0 0 20px 20px !important;
+                @media (max-width: 575.98px) {
+                    font-size: 0.8em;
+                }
+                svg {
+                    color: @texto-negro;
+                    font-size: 1.8em;
+                    animation: spinner 1s linear infinite;
+                }
+            }
+        }
+    }
+    &.hide {
+        display: none;
+    }
+}

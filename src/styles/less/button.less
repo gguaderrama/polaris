@@ -1,0 +1,26 @@
+.btn {
+    .no-copy();
+    cursor: pointer;
+    background-color: @fondo-base;
+    border: 2px solid @fondo-base;
+    outline: none;
+    min-width: 150px;
+    color: @texto-claro;
+    text-transform: uppercase;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.2s linear;
+    &:hover {
+        letter-spacing: 3px;
+        background-color: @texto-claro;
+        color: @texto-negro;
+    }
+    &:disabled {
+        border-color: @texto-medio;
+        background-color: @texto-claro;
+        color: @texto-medio;
+    }
+}

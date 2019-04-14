@@ -1,0 +1,225 @@
+.nosotros-video {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../assets/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(40%);
+}
+
+.nosotros-quienes {
+    margin: 50px 0;
+    width: 100%;
+    height: auto;
+    background-color: @texto-claro;
+
+    .nosotros-quienes-barrita {
+        height: 150px;
+        width: 3%;
+        background-color: @texto-gris;
+        display: table-cell;
+        @media (min-width: 576px) and (max-width: 767.98px) {
+
+        }
+    }
+
+    .nosotros-quienes-titulo {
+        padding-left: 10px;
+        height: 130px;
+        width: 17%;
+        display: table-cell;
+        vertical-align: middle;
+        @media (max-width: 575.98px) {
+            width: 100%;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            width: 100%;
+        }
+
+        h2 {
+            margin: 5px;
+            text-transform: uppercase;
+            color: @fondo-base;
+            font-size: 2.6em;
+            @media (max-width: 575.98px) {
+                display: -webkit-inline-box;
+            }
+            @media (min-width: 576px) and (max-width: 767.98px) {
+                display: -webkit-inline-box;
+            }
+        }
+    }
+
+    .nosotros-quienes-contenido {
+        padding: 0 7em 0 5em;
+        display: table-cell;
+        vertical-align: middle;
+        width: 80%;
+        @media (max-width: 575.98px) {
+            & {
+                display: block;
+                padding: 10px 20px;
+                width: 90%;
+            }
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            display: block;
+            width: 95%;
+            padding: 1em;
+
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            & {
+                padding: 0 2em 0 1em;
+            }
+        }
+        p {
+            text-align: justify;
+            color: @fondo-base;
+            font-size: 0.9em;
+            line-height: 1.8em;
+        }
+    }
+}
+
+.nosotros-tabs {
+    width: 100%;
+    height: 40px;
+    background-color: @texto-claro;
+    display: table;
+
+    .nosotros-tabs-opciones {
+        display: table-row;
+        width: 100%;
+
+        .nosotros-tabs-opcion {
+            width: 33%;
+            cursor: pointer;
+            display: table-cell;
+            padding: 15px;
+            text-align: center;
+            color: @fondo-base;
+            text-transform: uppercase;
+            border-bottom: 2px solid @texto-gris;
+
+            &.activo {
+                border-bottom: 3px solid @fondo-base;
+            }
+        }
+    }
+}
+
+.nosotros-tabs-contenido {
+    width: 100%;
+    height: auto;
+    background-color: @texto-claro;
+    margin: 4em 0px;
+
+    .nosotros-tabs-contenido-imagen {
+        width: 50%;
+        height: auto;
+        overflow: hidden;
+        display: inline-block;
+        
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        @media screen and (max-width: 768px) {
+            & {
+                width: 100%;
+            }
+        }
+    }
+
+    .nosotros-tabs-contenido-descripcion {
+        width: 50%;
+        height: auto;
+        display: inline-block;
+        text-align: center;
+        float: right;
+
+        @media screen and (max-width: 768px) {
+            & {
+                width: 100%;
+            }
+        }
+
+        h2 {
+            margin-block-start: 0.5em;
+            text-transform: uppercase;
+            color: #000000;
+            font-size: 2.25em;
+            text-align: left;
+            padding-left: 2em;
+            @media (max-width: 575.98px) {
+                & {
+                    padding-left: 1em;
+                }
+            }
+        }
+
+        p {
+            color: @fondo-base;
+            padding: 0 5em;
+            text-align: justify;
+            line-height: 1.8em;
+            font-size: 0.9em;
+            @media (max-width: 575.98px) {
+                & {
+                    padding: 0 1em;
+                }
+            }
+        }
+
+        h4 {
+            color: @texto-medio;
+            text-align: left;
+            text-transform: uppercase;
+            padding-left: 4.5em;
+            @media (max-width: 575.98px) {
+                & {
+                    padding-left: 1em;
+                }
+            }
+        }
+
+        .nosotros-tabs-contenido-caracteristicas {
+            text-align: left;
+            padding-left: 4.5em;
+            @media (max-width: 575.98px) {
+                & {
+                    padding-left: 1em;
+                }
+            }
+
+            img.icons-about {
+                height: 45px;
+                width: auto;
+                margin-right: 1em;            
+                display: inline-block;
+            }
+        }
+        .button-general {
+            margin-left: 4.5em;
+            float: left;
+            @media (max-width: 575.98px) {
+                & {
+                    margin-left: 1em;
+                }
+            }
+        }
+        ul {
+            li {
+                color: @texto-negro;
+                list-style: none;
+                font-size: .9em;
+                text-align: left;
+                padding: 0 2.25em;
+            }
+        }
+    }
+}

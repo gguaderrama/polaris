@@ -1,0 +1,356 @@
+.clases {
+    h2 {
+        text-transform: uppercase;
+        text-align: center;
+        color: @fondo-base;
+        font-size: 1.8em;
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .filtros {
+        margin: 0 auto;
+        padding: 20px 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        @media (max-width: 575.98px) {
+            overflow-x: hidden;
+        }
+        .combo-container {
+            padding: 8px 10px;
+            width: 27.5%;
+            display: inline-block;
+            @media (max-width: 575.98px) {
+                width: 90%;
+                display: block;
+            }
+            .mdl-selectfield select {
+                appearance: none;
+            }
+            .mdl-selectfield {
+                label {
+                    display: block;
+                    font-size: 12px;
+                    transform: translateY(0px);
+                    color: @texto-gris;
+                    transition: all 0.5s;
+                    line-height: 20px;
+                    text-align: left;
+                }
+                font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                position: relative;
+                &:after {
+                    position: absolute;
+                    top: 0.75em;
+                    right: 0.5em;
+                    width: 0;
+                    height: 0;
+                    padding: 14 0 0 0;
+                    content: '';
+                    border-left: 0.25em solid transparent;
+                    border-right: 0.25em solid transparent;
+                    border-top: 0.375em solid @texto-medio;
+                    pointer-events: none;
+                    display: none;
+                }
+                select {
+                    font-family: inherit;
+                    background-color: transparent;
+                    width: 100%;
+                    padding: 5px 5px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: @texto-negro;
+                    border: none;
+                    border-bottom: 1px solid @texto-medio;
+                    &.browser-default {
+                        color: @texto-negro;
+                        &:focus {
+                            outline: none;
+                            color: @texto-negro;
+                            background-color: @fondo-claro;
+                            font-size: 14px;
+                            line-height: 3em;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .hidden-calendar {
+        @media (max-width: 575.98px) {
+            overflow-x: auto;
+        }
+        .calendario {
+            @media (min-width: 576px) {
+                .header-calendar {
+                    visibility: hidden;
+                    display: none;
+                }
+            }
+            @media (max-width: 575.98px) {
+                width: 100%;
+                min-width: 700px;
+                .header-calendar {
+                    background-color: black;
+                    min-height: 0px;
+                    color: white;
+                    font-size: 0.7em;
+                    line-height: 1px;
+                    min-height: 2px !important;
+                    margin: 3px !important;
+                }
+            }
+            .fa-chevron-left,
+            .fa-chevron-right {
+                position: relative;
+                font-size: 0.9em;
+                cursor: pointer;
+                top: 30px;
+                &:hover {
+                    color: @texto-medio;
+                }
+                &.fa-chevron-left {
+                    float: left;
+                    left: 10px;
+                    &.disabled {
+                        color: @texto-medio;
+                        cursor: not-allowed;
+                    }
+                }
+                &.fa-chevron-right {
+                    float: right;
+                    right: 10px;
+                    &.disabled {
+                        color: @texto-medio;
+                        cursor: auto;
+                    }
+                }
+            }
+            h2 {
+                .no-copy();
+                text-transform: lowercase;
+                font-size: 1.5em;
+                padding-top: 20px;
+                color: @texto-claro;
+                text-align: center;
+                margin: 0 auto;
+                width: 100%;
+                height: 100px;
+                background-color: @fondo-base;
+                margin-top: 2em;
+                position: relative;
+                z-index: 0;
+            }
+            .calendario-table {
+                .no-copy();
+                margin: 0 auto;
+                color: @fondo-base;
+                padding: 50px;
+                padding-top: 0px;
+                border-collapse: collapse;
+                width: 100%;
+                max-width: @calendar-width;
+                table-layout: fixed;
+                margin-bottom: 2em;
+                position: relative;
+                z-index: 90;
+                top: -42px;
+                thead {
+                    color: @texto-claro;
+                    background-color: transparent;
+                    height: 50px;
+                    background-color: @fondo-base;
+                    tr {
+                        height: 50px;
+                        th {
+                            .calendario-table-day {
+                                margin: 0 auto;
+                                width: 45px;
+                                height: 45px;
+                                border-radius: 50%;
+                                vertical-align: middle;
+                                position: relative;
+                                cursor: pointer;
+                                h5 {
+                                    position: absolute;
+                                    margin: auto;
+                                    top: 7px;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    &:nth-child(2) {
+                                        top: 20px;
+                                    }
+                                }
+                                &.selected {
+                                    background-color: white;
+                                    color: @texto-negro;
+                                }
+                                &.today {
+                                    border: 1px solid @texto-claro;
+                                }
+                            }
+                            &.calendario-mes {
+                                column-span: 4;
+                                -webkit-column-span: 4;
+                                -moz-column-span: 4;
+                                -ms-column-span: 4;
+                                -o-column-span: 4;
+                            }
+                            height: 50px;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        td {
+                            text-align: center;
+                            vertical-align: top;
+                            div {
+                                margin: 10px;
+                                border: 1px solid @gris-claro;
+                                border-radius: 0;
+                                width: 90%;
+                                min-height: 115px;
+                                position: relative;
+                                padding: 10px 0;
+                                cursor: pointer;
+                                box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+                                .my-place {
+                                    height: 25px;
+                                    width: 25px;
+                                    position: absolute;
+                                    min-height: 20px;
+                                    border-radius: 50%;
+                                    background-color: @fondo-base;
+                                    margin: -5px -5px 0 0;
+                                    padding: 0;
+                                    right: 0px;
+                                    top: 0px;
+                                    cursor: default;
+                                    span {
+                                        position: relative;
+                                        color: @texto-claro;
+                                        font-size: 0.9em;
+                                    }
+                                }
+                                h5 {
+                                    color: @texto-negro;
+                                    text-transform: uppercase;
+                                    margin: 5px 0;
+                                    p {
+                                        display: inline;
+                                        color: @texto-medio;
+                                        font-size: 0.7em;
+                                        margin: 2px 0;
+                                        font-weight: 200;
+                                        text-transform: lowercase;
+                                    }
+                                    span {
+                                        text-transform: lowercase;
+                                    }
+                                }
+                                p {
+                                    color: @texto-medio;
+                                    font-size: 0.7em;
+                                    margin: 2px 0;
+                                    font-weight: 200;
+                                }
+                                .club {
+                                    color: @texto-medio;
+                                    font-size: 0.7em;
+                                    margin: 2px 0;
+                                    font-weight: 200;
+                                    text-transform: uppercase;
+                                }
+                                button {
+                                    margin: 0;
+                                    font-size: 0.7em;
+                                    position: absolute;
+                                    padding: 5px;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    cursor: pointer;
+                                    border: none;
+                                    border-top: 1px solid @fondo-base;
+                                    min-width: 10px;
+                                }
+                                &:hover {
+                                    background-color: @fondo-base;
+                                    color: @texto-claro;
+                                    h5 {
+                                        color: @texto-claro !important;
+                                    }
+                                }
+                                &.inactivo {
+                                    background-color: @gris-claro;
+                                    cursor: default;
+                                    h5 {
+                                        color: @texto-negro!important;
+                                    }
+                                    p {
+                                        color: @texto-medio!important;
+                                    }
+                                }
+                                &.reservado {
+                                    border: 1px solid @fondo-base;
+                                    background-color: @fondo-claro;
+                                    cursor: default;
+                                    h5 {
+                                        color: @texto-negro!important;
+                                    }
+                                    p {
+                                        color: @texto-medio!important;
+                                    }
+                                }
+                                &.hide {
+                                    visibility: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.calendar {
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    max-width: @calendar-width;
+    &.fixed {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        right: 0;
+        min-width: 685px;
+        @media (max-width: 575.98px) {
+            min-width: 100%;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            min-width: 100%;
+        }
+    }
+    @media (max-width: 575.98px) {
+        &.fixed {
+            display: block;
+            position: relative !important;
+            top: 0px;
+            left: 0;
+            right: 0;
+            min-width: 100%;
+        }
+    }
+}
+.calendar-fix {
+    @media (max-width: 575.98px) {
+        display: none;
+    }
+}
+

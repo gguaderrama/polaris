@@ -1,0 +1,164 @@
+image: gitlab/dind
+
+services:
+    - docker:dind
+
+stages:
+    - lint
+    - test
+    - build
+    - package
+    - deploy
+
+code-lint:
+    image: node:8.12.0-alpine
+    stage: lint
+    script:
+        - npm install --progress=false
+        - npm run lint
+    only:
+        - develop
+
+code-test:
+    image: node:8.12.0-alpine
+    stage: test
+    script:
+        - npm install --progress=false
+        - npm run test
+    only:
+        - develop
+
+node-build-dev:
+    image: node:8.12.0-alpine
+    stage: build
+    script:
+        - npm install --progress=false
+        - npm run develop
+    artifacts:
+        paths:
+            - dist
+    only:
+        - develop
+
+node-build-qa:
+    image: node:8.12.0-alpine
+    stage: build
+    script:
+        - npm install --progress=false
+        - npm run qa
+    artifacts:
+        paths:
+            - dist
+    only:
+        - quality
+
+node-build-prod:
+    image: node:8.12.0-alpine
+    stage: build
+    script:
+        - npm install --progress=false
+        - npm run build
+    artifacts:
+        paths:
+            - dist
+    only:
+        - master
+
+docker-package:
+    image: docker:latest
+    stage: package
+    script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+          $CI_REGISTRY
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_PIPELINE_ID" .
+        - docker push "$CI_REGISTRY_IMAGE:$CI_PIPELINE_ID"
+    only:
+        - develop
+        
+docker-package-qa:
+    image: docker:latest
+    stage: package
+    script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+          $CI_REGISTRY
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:qa-$CI_PIPELINE_ID" .
+        - docker push "$CI_REGISTRY_IMAGE:qa-$CI_PIPELINE_ID"
+    only:
+        - quality
+
+docker-package-prod:
+    image: docker:latest
+    stage: package
+    script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+          $CI_REGISTRY
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:$PROD_VERSION" .
+        - docker push "$CI_REGISTRY_IMAGE:$PROD_VERSION"
+    only:
+        - master
+
+k8s-deploy-dev:
+    image: azuresdk/azure-cli-python
+    stage: deploy
+    script:
+        - python deploy.py $CI_PIPELINE_ID
+        - wget
+          https://storage.googleapis.com/kubernetes-release/release/v1.11.4/bin/linux/amd64/kubectl
+          -qO /usr/local/bin/kubectl
+        - chmod +x /usr/local/bin/kubectl
+        - az login -u $AZ_USER -p $AZ_PASSWORD --tenant $AZ_TENANT
+        - az aks get-credentials --resource-group $AZ_RESOURCE_GROUP --name
+          $AZ_RESOURCE
+        - kubectl delete secret registry.gitlab.com
+        - kubectl create secret docker-registry registry.gitlab.com
+          --docker-server=https://registry.gitlab.com
+          --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD
+          --docker-email=alberto.ruiz@sellcom-solutions.com.mx
+        - kubectl apply -f deployment.yml
+    only:
+        - develop
+    environment:
+        name: desarrollo
+        url: http://load-webpage.1a8b40c3be00487f8fdd.centralus.aksapp.io
+        
+k8s-deploy-qa:
+    image: azuresdk/azure-cli-python
+    stage: deploy
+    script:
+        - python deploy-qa.py $CI_PIPELINE_ID
+        - wget
+          https://storage.googleapis.com/kubernetes-release/release/v1.11.4/bin/linux/amd64/kubectl
+          -qO /usr/local/bin/kubectl
+        - chmod +x /usr/local/bin/kubectl
+        - az login -u $AZ_USER -p $AZ_PASSWORD --tenant $AZ_TENANT
+        - az aks get-credentials --resource-group $AZ_RESOURCE_GROUP --name
+          $AZ_RESOURCE_QA
+        - kubectl delete secret registry.gitlab.com
+        - kubectl create secret docker-registry registry.gitlab.com
+          --docker-server=https://registry.gitlab.com
+          --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD
+          --docker-email=alberto.ruiz@sellcom-solutions.com.mx
+        - kubectl apply -f deployment-qa.yml
+    only:
+        - quality
+    environment:
+        name: calidad
+        url: http://load-webpage.0e2cbf7194fe46589189.centralus.aksapp.io
+
+k8s-deploy-prod:
+    image: claranet/gcloud-kubectl-docker:latest
+    stage: deploy
+    script:
+        - python deploy-prod.py $PROD_VERSION
+        - echo "$GCLOUD_USER_KEY" > key.json
+        - gcloud auth activate-service-account --key-file=key.json
+        - gcloud config set project $GCLOUD_PROJECT
+        - gcloud config set container/cluster load-cluster
+        - gcloud config set compute/zone us-west2-c
+        - gcloud container clusters get-credentials load-cluster --zone us-west2-c
+        - kubectl apply -f deployment-prod.yml
+    only:
+        - master
+    environment:
+        name: produccion
+        url: http://load.mx

@@ -1,0 +1,189 @@
+.pack_page {
+    margin: 50px 0;
+    width: 100%;
+    height: auto;
+    color: @texto-gris;
+    display: table;
+
+    .pack-line {
+        background-color: @fondo-base;
+        height: 10px;
+        width: 5%;
+        display: inline-block;
+    }
+
+    .pack-titulo {
+        padding-left: 10px;
+        height: auto;
+        width: 22%;
+        display: inline-block;
+        vertical-align: middle;
+        @media (max-width: 575.98px) {
+                width: 60%;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            width: 80%;
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+                width: 50%;
+        }
+
+        h2 {
+            margin: 5px;
+            text-transform: uppercase;
+            color: @fondo-base;
+            font-size: 2.4em;
+        }
+    }
+
+    .pack-contenido {
+        padding: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+        position: relative;
+        right: 10em;
+        float: right;
+        @media (max-width: 575.98px) {
+            display: block;
+            padding: 10px 20px;
+            width: 90%;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            width: 90%;
+        }
+        p {
+            text-align: justify;
+            color: @texto-negro;
+            font-size: 0.9em;
+        }
+    }
+}
+.pack-accordion {
+    width: 50%;
+    float: right;
+    height: auto;
+    margin-bottom: 3em;
+    display: block;
+    position: relative;
+    right: 10em;
+    @media (max-width: 575.98px) {
+        & {
+            width: 90%;
+            right: 1.25em;
+        }
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        right: 3em;
+        width: 80%;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+            width: 90%;
+            right: 1.25em;
+    }
+    .drop-down {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transform: translateZ(0);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        .gift-form {
+            margin-bottom: 2em;
+            margin-left: 1em;
+            .text-container {
+                max-width: 55%;
+            }
+        }
+        p {
+            padding-left: 1em;
+            font-size: .9em;
+            text-align: justify;
+            line-height: 2em;
+            color: @texto-negro;
+        }
+        .button-general {
+            position: relative;
+            margin-left: 1em;
+            width: 94%; 
+        }
+        
+    }
+    .drop-down-menu {
+        display: block;
+        background-color: @fondo-claro;
+        -webkit-transform: translateZ(0);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        border-bottom: 1px solid @texto-medio;
+        &:hover {
+            background-color: @gris-claro;
+            color: @texto-gris;
+        }
+    }
+    .menu-title {
+        cursor: pointer;
+        display: block;
+        padding: 10px 10px;
+        height: 80px;
+        p {
+            font-size: .9em;
+            color: @texto-gris;
+            letter-spacing: .05em;
+            strong {
+                color: @texto-negro;
+            }
+            span.pack-price {
+                font-size: 1.5em;
+            }
+            span.pack-price-number {
+                font-size: 1.5em;
+                float: right;
+            }
+            span.pack-price-name {
+                font-size: 1.5em;
+            }
+            p.pack-price-vigencia {
+                font-size: 1.5em;
+            }
+            .fa-chevron-right {
+                float: right;
+                font-size: 1.25em;
+                position: relative;
+                top: 3px;
+            }
+            
+        }
+    }
+    .activate {
+        display: none;
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        height: 40px;
+        margin: 0 0 0 -15px;
+        opacity: 0;
+        &:checked {
+            &~.drop-down {
+                max-height: 300px;
+                background-color: @fondo-claro;
+                height: auto;
+                @media (max-width: 575.98px) {
+                    max-height: 330px;
+                }
+                &:hover {
+                    color: @texto-gris;
+                }
+            }
+        }
+    }
+    &:checked {
+        &~.menu-title {
+            background: #495261;
+        }
+    }
+}
+

@@ -1,0 +1,103 @@
+.text-container {
+    padding: 20px 0 0 0;
+    position: relative;
+    text-align: left;
+    height: 40px;
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #9b9b9b;
+        bottom: 0;
+        left: 0;
+        transition: all 0.3s;
+    }
+    &:after {
+        background-color: @texto-claro;
+        transform: scaleX(0);
+    }
+    &.oscuro:after {
+        background-color: @fondo-base;
+    }
+    .text-label {
+        display: block;
+        font-size: 14px;
+        transform: translateY(0px);
+        color: #9b9b9b;
+        transition: all 0.2s;
+        line-height: 2px;
+        position: absolute;
+        z-index: 999;
+        &.oscuro {
+            color: @texto-medio;
+        }
+    }
+    .text-input {
+        position: relative;
+        background: transparent;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding-top: 14px;
+        padding-left: 6px;
+        font-size: 14px;
+        color: @texto-claro;
+        &.oscuro {
+            color: @fondo-base;
+        }
+        &:disabled.oscuro {
+            .no-copy();
+            color: @texto-medio;
+        }
+    }
+    &.is-active::after {
+        transform: scaleX(5px);
+        background-color: @texto-medio;
+    }
+
+    &.is-active .text-label {
+        color: @texto-medio;
+        transform: scaleX(5px);
+        &.oscuro {
+            color: @texto-medio;
+        }
+    }
+
+    &.is-completed .text-label {
+        line-height: 0px;
+        font-size: 12px;
+        position: absolute;
+        transform: translateY(5px);
+    }
+    &.is-invalid {
+        // .text-label {
+        //     color: red;
+        // }
+        &:after {
+            background-color: @texto-medio;
+        }
+        &:before {
+            background-color: red;
+        }
+    }
+    .pass-eye {
+        position: absolute;
+        right: 2px;
+        top: 30px;
+        color: @texto-medio;
+        &.hide {
+            display: none;
+        }
+    }
+    .info-text {
+        font-size: 0.7em;
+        position: absolute;
+        bottom: 0;
+        margin-bottom: -14px;
+        color: #ff0000;
+        left: 0;
+    }
+}

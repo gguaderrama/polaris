@@ -1,0 +1,53 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: load-webpage
+  namespace: default
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load-webpage
+  template:
+    metadata:
+      labels:
+        app: load-webpage
+    spec:
+      containers:
+      - name: load-webpage
+        image: registry.gitlab.com/sellcom/load_webpage:qa-CI_PIPELINE_ID
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: registry.gitlab.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: load-webpage
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: load-webpage
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: load-webpage
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: load-webpage.0e2cbf7194fe46589189.centralus.aksapp.io
+    http:
+      paths:
+      - backend:
+          serviceName: load-webpage
+          servicePort: 80
+        path: /

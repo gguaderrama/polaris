@@ -1,0 +1,163 @@
+.topbar {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: @fondo-base;
+    z-index: 9999;
+    .top-right {
+        display: table;
+        position: absolute;
+        right: 0;
+        top: 0;
+        .cart {
+            position: relative;
+            right: 0;
+        }
+        .log {
+            position: relative;
+            right: 2.85em;
+            .topbar-shopping-text {
+                margin-right: 40px;
+            }
+            .tooltip {
+                visibility: hidden;
+                width: 160px;
+                height: 50px;
+                background-color: @fondo-claro;
+                color: @texto-negro;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                position: absolute;
+                right: 0;
+                top: 50px;
+                z-index: 1;
+                transition: all 0.2s linear;
+                box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.2);
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    border-bottom: 8px solid @fondo-claro;
+                    border-left: 12px solid transparent;
+                    border-right: 12px solid transparent;
+                    right: 10px;
+                    top: -8px;
+                }
+                p {
+                    cursor: pointer;
+                    &:hover {
+                        color: @texto-medio;
+                    }
+                }
+            }
+            &:hover .tooltip {
+                visibility: visible;
+            }
+        }
+    }
+    img {
+        &.nav-logo {
+            width: 180px;
+            height: auto;
+            position: relative;
+            margin: 0 auto;
+            display: block;
+            padding-top: 6px;
+            cursor: pointer;
+            @media screen and (max-width: 425px) {
+                & {
+                    display: none;
+                }
+            }
+        }
+    }
+    .topbar-menu-icon {
+        position: absolute;
+        cursor: pointer;
+        border: 1px solid @texto-medio;
+        color: @texto-medio;
+        padding: 15px;
+        width: 15px;
+        height: 18px;
+        display: inline-block;
+    }
+    .topbar-menu-text {
+        .no-copy();
+        left: 0;
+        margin-left: 50px;
+        position: absolute;
+        font-weight: bold;
+        padding: 15px 8px;
+        font-size: 0.7em;
+        width: 30px;
+        height: 20px;
+        display: inline-block;
+        line-height: 22px;
+        text-transform: uppercase;
+    }
+    .topbar-shopping-icon {
+        right: 0;
+        position: absolute;
+        cursor: pointer;
+        border: 1px solid #848484;
+        color: #848484;
+        padding: 15px 18px 15px 12px;
+        width: 15px;
+        height: 18px;
+        display: inline-block;
+        svg {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 8px;
+            left: 7px;
+            animation: spinner 1.5s linear infinite;
+        }
+        img {
+            width: 20px;
+            &.shake {
+                animation: tiembla 1s infinite;
+            }
+            &.avatar-topbar {
+                position: absolute;
+                top: 6px;
+                left: 4px;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                border: 1px solid #848484;
+            }
+        }
+    }
+    .topbar-shopping-text {
+        right: 0;
+        margin-right: 50px;
+        position: absolute;
+        font-weight: bold;
+        padding: 15px 8px;
+        font-size: 0.7em;
+        width: 50px;
+        height: 20px;
+        display: inline-block;
+        line-height: 22px;
+        text-transform: uppercase;
+    }
+    .shopping-cart-contador {
+        background-color: @texto-claro;
+        color: @texto-negro;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 0.8em;
+        font-weight: 600;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}

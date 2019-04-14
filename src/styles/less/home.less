@@ -1,0 +1,171 @@
+.home-background {
+    width: 100%;
+    height: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: brightness(40%);
+    filter: brightness(40%);
+    z-index: 1;
+    &.banner-load {
+        // background-image: url('../../assets/home.jpg');
+        background-color: @fondo-base;
+    }
+    &.banner-cycling {
+        background-image: url('../../assets/slide-cycling.jpg');
+    }
+    &.banner-workout {
+        background-image: url('../../assets/slide-workout.jpg');
+    }
+    @media (max-width: 444.98px) {
+        height: 55%;
+    }
+    @media (min-width: 445px) and (max-width: 575.98px) and (orientation: landscape) {
+        height: 50%;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+        height: 65%;
+    }
+}
+.home-logo {
+    width: 45%;
+    position: absolute;
+    top: 18%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @media (max-width: 575.98px) {
+        width: 60%;
+        top: 15%;
+    }
+}
+.coworking {
+    position: absolute;
+    bottom: 55%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    letter-spacing: .75em;
+    
+    @media (max-width: 575.98px) and (orientation: landscape) {
+        bottom: 60%;
+        font-size: .75em;
+        letter-spacing: .35em;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+        bottom: 57%;
+        font-size: .8em;
+    }
+}
+.columns_home {
+    width: 100%;
+    display: flex;
+    height: 45%;
+    @media (max-width: 575.98px) {
+        display: block;
+        height: 35%;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        display: block;
+        height: 80%;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        display: block;
+    }
+    .reserve,.home-cycling,.home-work {
+        cursor: pointer;
+        display: table;
+        width: 50%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @media (max-width: 575.98px) {
+            width: 100%;
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            width: 100%;
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            width: 100%;
+        }
+        h2 {
+            text-align: left;
+            display: table-cell;
+            vertical-align: middle;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 1.3em;
+            color: @texto-negro;
+            left: 4.5em;
+            position: relative;
+            span {
+                font-size: 0.6em;
+            }
+            @media (max-width: 575.98px) {
+                left: .5em;
+                display: inherit;
+                margin-top: 4em;
+            }
+            @media (min-width: 576px) and (max-width: 767.98px) {
+                left: .5em;
+                display: inherit;
+                margin-top: 7.5em;
+            }
+            @media (min-width: 768px) and (max-width: 991.98px) {
+                left: 1.5em;
+                display: inherit;
+                margin-top: 5.5em;
+            }
+            @media (min-width: 992px) and (max-width: 1199.98px) {
+                left: 1em;
+                display: inherit;
+                margin-top: 5.5em;
+            }
+        } 
+    }
+    .reserve {
+        background-color: @fondo-base;
+        cursor: pointer;
+        h2 {
+            &:hover {
+                font-size: 1.5em;
+                transition:all 0.4s ease;
+            }
+        }
+    }
+    .home-cycling {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select:none;
+        user-select: none;
+            background-image: url('../../assets/load-ciclyng.jpg');
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .home-work {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select:none;
+        user-select: none;
+        background-image: url('../../assets/load-workout-bar.jpg');
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+    .btn-slide {
+        position: relative;
+        display: block;
+        top: 20px;
+        left: 40%;
+        .button-general {
+            display: block;
+        }
+    }
+}
+
+

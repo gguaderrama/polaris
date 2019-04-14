@@ -1,0 +1,106 @@
+.contacto-panel-izquierdo {
+    // width:calc(~'100% - 500px');
+    width: 50%;
+    display: inline-block;
+    max-width: 676px;
+    @media screen and (max-width: 768px) {
+        & {
+            width: 100%;
+        }
+    }
+    .contacto-form {
+        width: 90%;
+        margin: 30px auto;
+        height: auto;
+        p {
+            color: @texto-negro;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+        input-check {
+            display: inline-block;
+        }
+        .material-checkbox {
+            padding: 10px 0;
+            z-index: 99;
+            span {
+                padding: 10px;
+                &::after {
+                    top: 10px;
+                    left: 10px;
+                }
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    margin-right: 10px;
+                    border: solid 1px #737373;
+                    border-radius: 50%;
+                    width: 17px;
+                    height: 17px;
+                    vertical-align: -4px;
+                    transition: border-color 0.5s, background-color 0.5s;
+                }
+            }
+        }
+        ul {
+            &.navigation-terminos {
+                position: relative;
+                text-align: left;
+                top: 0;
+                left: 0;
+                list-style: none;
+                line-height: 1.15em;
+                cursor: pointer;
+                a {
+                    color: @texto-gris;
+                    text-decoration: none;
+                    &:hover {
+                        color: @texto-negro;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contacto-panel-derecho {
+    display: inline-block;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    margin-top: 30px;
+    @media screen and (max-width: 768px) {
+        & {
+            width: 100%;
+            position: relative;
+            margin: 30px auto 0 auto;
+        }
+    }
+    .contacto-direccion {
+        height: 200px;
+        background-color: @fondo-base;
+        display: table;
+        width: 90%;
+        margin: 0 auto;
+        h3 {
+            margin: 0;
+            padding: 40px 0 10px 40px;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 0.8em;
+            padding: 5px 40px;
+            margin: 0;
+        }
+    }
+    .contacto-mapa {
+        height: 300px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .black {
+        color: black;
+        width: 200%;
+        height: 200%;
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "plugins": ["react"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "max-len": [2, 80, 4, { "ignoreComments": true }],
+        "quotes": [2, "single"],
+        "semi": ["error", "never"],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": "first",
+                "MemberExpression": 1,
+                "ImportDeclaration": 1,
+                "ignoredNodes": ["ConditionalExpression"],
+                "FunctionExpression": { "parameters": "first" }
+            }
+        ],
+        "no-trailing-spaces": 2,
+        "no-extra-semi": 1,
+        "react/jsx-uses-react": "error",
+        "space-before-function-paren": ["error", "never"],
+        "no-var": 2
+    }
+}
